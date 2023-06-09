@@ -19,8 +19,7 @@ public class CustomListeners implements ITestListener{
 		Reporter.log("<a target=\"_blank\" href=\"E:\\error.png\">Screenshot</a>");
 		Reporter.log("<br>");
 		Reporter.log("<a target=\"_blank\" href=\"E:\\error.png\"><img src=\"E:\\error.png\" height=200 width=200></img></a>");
-		//helo
-		Reporter.log("Capturingasf SS");
+		
 		Reporter.log("Capturingasf SS");
 		Reporter.log("Capturingasf SS");
 
