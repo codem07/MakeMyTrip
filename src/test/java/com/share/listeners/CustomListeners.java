@@ -12,7 +12,7 @@ public class CustomListeners implements ITestListener{
 	public void onTestStart(ITestResult result) {
 		
 	}
-	
+	//asdf
 	public void onTestFailure(ITestResult result) {
 		System.setProperty("org.uncommons.reportng.escape-output", "false");
 		Reporter.log("Capturing SS");
