@@ -22,6 +22,7 @@ public class CustomListeners implements ITestListener{
 		//helo
 		Reporter.log("Capturingasf SS");
 		Reporter.log("Capturingasf SS");
+		Reporter.log("Capturingasf SS");
 
 	}
 	
