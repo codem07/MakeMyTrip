@@ -108,7 +108,7 @@ public class TestBase {
 	public void tearDown() {
 
 		if (driver != null) {
-			//driver.quit();
+			driver.quit();
 		}
 
 		log.debug("test execution completed");
