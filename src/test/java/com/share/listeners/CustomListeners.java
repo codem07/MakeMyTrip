@@ -15,24 +15,6 @@ import com.share.utilities.TestUtil;
 public class CustomListeners implements ITestListener {
 
 	public void onTestStart(ITestResult result) {
-<<<<<<< HEAD
-		
-	}
-	//asdfadsfaf
-	public void onTestFailure(ITestResult result) {
-		System.setProperty("org.uncommons.reportng.escape-output", "false");
-		Reporter.log("Capturing SS");
-		Reporter.log("<a target=\"_blank\" href=\"E:\\error.png\">Screenshot</a>");
-		Reporter.log("<br>");
-		Reporter.log("<a target=\"_blank\" href=\"E:\\error.png\"><img src=\"E:\\error.png\" height=200 width=200></img></a>");
-		
-		Reporter.log("Captfsdfasdfadfadfuringasf SS");
-		Reporter.log("Captfsdfasdfadfadfuringasf SS");
-		Reporter.log("Capturingasf SS");
-		Reporter.log("Capturingasf SS");
-		Reporter.log("Captfsdfasdfadfadfuringasf SS");
-=======
->>>>>>> PC1
 
 	}
 
