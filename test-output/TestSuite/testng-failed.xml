@@ -4,16 +4,17 @@
   <listeners>
     <listener class-name="org.uncommons.reportng.HTMLReporter"/>
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+    <listener class-name="com.share.listeners.CustomListeners"/>
   </listeners>
-  <test thread-count="5" name="Add Customer Test(failed)">
+  <test thread-count="5" name="BankManagerLoginTest(failed)">
     <classes>
-      <class name="com.share.testcase.AddCustomerTest">
+      <class name="com.share.testcase.BankManagerLoginTest">
         <methods>
+          <include name="loginasBankManager"/>
           <include name="setUp"/>
-          <include name="addCustomer" invocation-numbers="0"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.share.testcase.AddCustomerTest -->
+      </class> <!-- com.share.testcase.BankManagerLoginTest -->
     </classes>
-  </test> <!-- Add Customer Test(failed) -->
+  </test> <!-- BankManagerLoginTest(failed) -->
 </suite> <!-- Failed suite [TestSuite] -->
