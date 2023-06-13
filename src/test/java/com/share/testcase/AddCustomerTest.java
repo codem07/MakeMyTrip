@@ -1,5 +1,7 @@
 package com.share.testcase;
 
+import java.io.IOException;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,16 +10,17 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.share.base.TestBase;
+import com.share.utilities.TestUtil;
 
 public class AddCustomerTest extends TestBase  {
 
 @Test(dataProvider="getData")
-public void addCustomer(String FirstName, String LastName, String Postcode, String alerttext) throws InterruptedException {
+public void addCustomer(String FirstName, String LastName, String Postcode, String alerttext) throws InterruptedException, IOException {
 	
 	driver.findElement(By.cssSelector(OR.getProperty("addCustBtn"))).click();
 	Thread.sleep(3000);
 
-	driver.findElement(By.cssSelector(OR.getProperty("firstname"))).sendKeys(FirstName);
+	driver.findElement(By.cssSelector(OR.getProperty("firstnam"))).sendKeys(FirstName);
 	Thread.sleep(3000);
 
 	driver.findElement(By.cssSelector(OR.getProperty("lastname"))).sendKeys(LastName);
@@ -39,6 +42,7 @@ public void addCustomer(String FirstName, String LastName, String Postcode, Stri
 	Thread.sleep(3000);
 
 
+ System.out.println("this is ADDCT class name: "+this.getClass().getName());
 }
 
 @DataProvider
