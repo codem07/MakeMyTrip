@@ -28,14 +28,16 @@ public class CustomListeners implements ITestListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
- 
+  
 		Reporter.log("Capturing SS");
 		Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + ">Screenshot</a>");
 		Reporter.log("<br>");
 		Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src=" + TestUtil.screenshotName+ " height=200 width=200></img></a>");
+
 //space added 3
 		//space added 4
 		//space added 5
+
 
 	}
 
