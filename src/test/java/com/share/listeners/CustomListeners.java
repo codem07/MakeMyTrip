@@ -33,6 +33,8 @@ public class CustomListeners implements ITestListener {
 		Reporter.log("<br>");
 		Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src=" + TestUtil.screenshotName+ " height=200 width=200></img></a>");
 // Space added 
+		// Space added 2
+
 	}
 
 	public void onTestSkipped(ITestResult result) {
