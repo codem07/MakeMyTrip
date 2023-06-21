@@ -8,13 +8,14 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
+import com.relevantcodes.extentreports.LogStatus;
+import com.share.base.TestBase;
 import com.share.utilities.TestUtil;
 
-
-
-public class CustomListeners implements ITestListener {
+public class CustomListeners extends TestBase implements ITestListener {
 
 	public void onTestStart(ITestResult result) {
+		test = extentReport.startTest(result.getName().toUpperCase());
 	}
 
 	//
@@ -27,20 +28,35 @@ public class CustomListeners implements ITestListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-  
+
+		test.log(LogStatus.FAIL, result.getName().toUpperCase() + "Failed with exception:" + result.getThrowable());
+		test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
+
 		Reporter.log("Capturing SS");
 		Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + ">Screenshot</a>");
 		Reporter.log("<br>");
-		Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src=" + TestUtil.screenshotName+ " height=200 width=200></img></a>");
-// Space added 
-		// Space added 2
-		// Space added 6
+		Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src=" + TestUtil.screenshotName
+				+ " height=200 width=200></img></a>");
+		extentReport.endTest(test);
+		extentReport.flush();
 
 	}
 
 	public void onTestSkipped(ITestResult result) {
 
 	}
+	
+
+	public void onTestSuccess(ITestResult result) {
+
+		test.log(LogStatus.PASS, result.getName().toUpperCase() + "PASS");
+		extentReport.endTest(test);
+		extentReport.flush();
+	}
+
+	
+
+	
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 	}
