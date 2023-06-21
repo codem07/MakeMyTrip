@@ -20,7 +20,7 @@ public void addCustomer(String FirstName, String LastName, String Postcode, Stri
 	driver.findElement(By.cssSelector(OR.getProperty("addCustBtn"))).click();
 	Thread.sleep(3000);
 
-	driver.findElement(By.cssSelector(OR.getProperty("firstnam"))).sendKeys(FirstName);
+	driver.findElement(By.cssSelector(OR.getProperty("firstname"))).sendKeys(FirstName);
 	Thread.sleep(3000);
 
 	driver.findElement(By.cssSelector(OR.getProperty("lastname"))).sendKeys(LastName);
