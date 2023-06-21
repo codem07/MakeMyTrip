@@ -25,9 +25,9 @@ public class TestUtil extends TestBase {
 		screenshotName = d.toString().replace(":", "_").replace(" ","_");
 		File ssFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(ssFile, new File(System.getProperty("user.dir")+"\\target\\surefire-reports\\html\\"+screenshotName));
-	
-	
-	//adf
+
+		//PC1
+
 	}
 
 	
