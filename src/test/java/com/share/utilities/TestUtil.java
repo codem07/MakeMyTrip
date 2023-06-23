@@ -3,6 +3,8 @@ package com.share.utilities;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
@@ -22,8 +24,9 @@ public class TestUtil extends TestBase {
 	public static void captureScreenshot() throws IOException {
 		
 		 
-
-		Date d = new Date();
+      LocalDate ld = LocalDate.now();
+	
+        Date d = new Date();
 		screenshotName = d.toString().replace(":", "_").replace(" ","_");
 		File ssFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(ssFile, new File(System.getProperty("user.dir")+"\\target\\surefire-reports\\html\\"+screenshotName));

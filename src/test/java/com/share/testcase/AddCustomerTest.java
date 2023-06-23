@@ -18,19 +18,19 @@ public class AddCustomerTest extends TestBase  {
 public void addCustomerTest(String FirstName, String LastName, String Postcode, String alerttext) throws InterruptedException, IOException {
 	
 	click("addCustBtn_CSS");
-	Thread.sleep(3000);
+	Thread.sleep(2000);
 
  type("firstname_CSS",FirstName);
-	Thread.sleep(3000);
+	Thread.sleep(2000);
 
 	type("lastname_CSS",LastName);
-	Thread.sleep(3000);
+	Thread.sleep(2000);
 
 	type("postcode_CSS",Postcode);
-	Thread.sleep(3000);
+	Thread.sleep(2000);
 
 	click("addbtn_CSS");
-	Thread.sleep(3000);
+	Thread.sleep(2000);
 
 
 	
