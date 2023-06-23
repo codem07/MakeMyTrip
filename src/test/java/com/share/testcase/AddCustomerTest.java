@@ -14,22 +14,22 @@ import com.share.utilities.TestUtil;
 
 public class AddCustomerTest extends TestBase  {
 
-@Test(dataProvider="getData")
-public void addCustomer(String FirstName, String LastName, String Postcode, String alerttext) throws InterruptedException, IOException {
+@Test(dataProviderClass=TestUtil.class,dataProvider="db")
+public void addCustomerTest(String FirstName, String LastName, String Postcode, String alerttext) throws InterruptedException, IOException {
 	
-	driver.findElement(By.cssSelector(OR.getProperty("addCustBtn"))).click();
+	click("addCustBtn_CSS");
 	Thread.sleep(3000);
 
-	driver.findElement(By.cssSelector(OR.getProperty("firstname"))).sendKeys(FirstName);
+ type("firstname_CSS",FirstName);
 	Thread.sleep(3000);
 
-	driver.findElement(By.cssSelector(OR.getProperty("lastname"))).sendKeys(LastName);
+	type("lastname_CSS",LastName);
 	Thread.sleep(3000);
 
-	driver.findElement(By.cssSelector(OR.getProperty("postcode"))).sendKeys(Postcode);
+	type("postcode_CSS",Postcode);
 	Thread.sleep(3000);
 
-	driver.findElement(By.cssSelector(OR.getProperty("addbtn"))).click();
+	click("addbtn_CSS");
 	Thread.sleep(3000);
 
 
@@ -45,30 +45,12 @@ public void addCustomer(String FirstName, String LastName, String Postcode, Stri
  System.out.println("this is ADDCT class name: "+this.getClass().getName());
 }
 
-@DataProvider
-public Object [] [] getData(){
-	String sheetName = "AddCustomerTest";
-	int rows = excel.getRowCount(sheetName);
-	int cols = excel.getColumnCount(sheetName);
-  //  System.out.println(excel.path);
-    //System.out.println("Rows count 2 ="+rows);
-    //System.out.println("Cols count 4 ="+cols);
-	                              //1     4
-	Object[][] data = new Object[rows-1][cols]; 
+//@Test(dataProviderClass=TestUtil.class,dataProvider="db")
+public void addCustomerTest2() {
 	
-	for (int rowNum = 2; rowNum <= rows; rowNum++) {
-		
-		for(int colNum = 0; colNum < cols; colNum++) {
-			System.out.println("colNum" +colNum);
-			//    0           1                                             2      
-			data[rowNum - 2][colNum] = excel.getCellData(sheetName, colNum, rowNum);
-			//System.out.println(excel.getCellData(sheetName, colNum, rowNum));
-			
-		}
-	}
-	return data;
-	 
 }
+
+
 
 
 

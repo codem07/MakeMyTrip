@@ -19,6 +19,7 @@ import org.testng.annotations.BeforeSuite;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 import com.share.utilities.ExcelReader;
 import com.share.utilities.ExtentManager;
 
@@ -100,25 +101,29 @@ public class TestBase {
 	public static void click(String locator) {
 		if(locator.endsWith("_CSS")) {
 			
-		driver.findElement(By.cssSelector(locator)).click();
-		
+		driver.findElement(By.cssSelector(OR.getProperty(locator))).click();
+		test.log(LogStatus.INFO, "Clicked on " +locator);
 	
 		}else if(locator.endsWith("_XPATH")) {
 			
-		driver.findElement(By.xpath(locator)).click();
-			
+		driver.findElement(By.xpath(OR.getProperty(locator))).click();
+		test.log(LogStatus.INFO, "Clicked on " +locator);
+
 		}
 		}
 	
 	public static void type(String locator, String value) {
 		if(locator.endsWith("_CSS")) {
 			
-		driver.findElement(By.cssSelector(locator)).sendKeys(value);;
-		
+		driver.findElement(By.cssSelector(OR.getProperty(locator))).sendKeys(value);;
+		test.log(LogStatus.INFO, "Typed "+value+" on "+locator);
+
 	
 		}else if(locator.endsWith("_XPATH")) {
 			
-		driver.findElement(By.xpath(locator)).sendKeys(value);
+		driver.findElement(By.xpath(OR.getProperty(locator))).sendKeys(value);
+		test.log(LogStatus.INFO, "Typed "+value+" on "+locator);
+
 			
 		}
 		}

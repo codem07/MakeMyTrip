@@ -13,10 +13,10 @@ public class BankManagerLoginTest extends TestBase {
 	public void loginasBankManager() throws InterruptedException {
 		
 		log.debug("Inside Login Test");
-		driver.findElement(By.cssSelector(OR.getProperty("bmlBtn"))).click();
+		click("bmlBtn_CSS");
 		Thread.sleep(3000);
 		
-		Assert.assertTrue(isElementPresent(By.cssSelector(OR.getProperty("addCustBtn"))));
+		Assert.assertTrue(isElementPresent(By.cssSelector(OR.getProperty("addCustBtn_CSS"))));
 		
 		log.debug("Login success");
               
