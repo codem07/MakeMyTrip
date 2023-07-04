@@ -19,6 +19,7 @@ public class AddCustomerTest extends TestBase {
 			throws InterruptedException, IOException {
 
 		click("addCustBtn_CSS");
+
 		type("firstname_CSS", FirstName);
 		type("lastname_CSS", LastName);
 		type("postcode_CSS", Postcode);
@@ -28,7 +29,7 @@ public class AddCustomerTest extends TestBase {
 		Assert.assertTrue(alert.getText().contains(alerttext));
 		alert.accept();
 		Thread.sleep(3000);
-
+		
 	}
 
 //@Test(dataProviderClass=TestUtil.class,dataProvider="db")

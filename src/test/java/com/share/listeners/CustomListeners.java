@@ -15,7 +15,9 @@ import com.share.utilities.TestUtil;
 public class CustomListeners extends TestBase implements ITestListener {
 
 	public void onTestStart(ITestResult result) {
+
 		test = extentReport.startTest(result.getName().toUpperCase());
+
 	}
 
 	//
@@ -35,8 +37,10 @@ public class CustomListeners extends TestBase implements ITestListener {
 		Reporter.log("Capturing SS");
 		Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + ">Screenshot</a>");
 		Reporter.log("<br>");
-		Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src=" + TestUtil.screenshotName
-				+ " height=200 width=200></img></a>");
+
+		Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src=" + TestUtil.screenshotName+ " height=200 width=200></img></a>");
+
+
 		extentReport.endTest(test);
 		extentReport.flush();
 
