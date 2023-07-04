@@ -7,7 +7,7 @@
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 		<listener class-name="com.share.listeners.CustomListeners" />
 	</listeners>
- 
+
 
 	<test name="BankManagerLoginTest">
 		<classes>
@@ -20,4 +20,12 @@
 			<class name="com.share.testcase.AddCustomerTest" />
 		</classes>
 	</test> <!-- Test -->
+
+<test name="Open Account Test">
+		<classes>
+			<class name="com.share.testcase.OpenAccountTest" />
+		</classes>
+	</test> <!-- Test -->
+
+
 </suite> <!-- Suite -->

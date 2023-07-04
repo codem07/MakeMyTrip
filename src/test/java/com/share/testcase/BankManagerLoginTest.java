@@ -1,5 +1,7 @@
 package com.share.testcase;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -10,17 +12,23 @@ import com.share.base.TestBase;
 public class BankManagerLoginTest extends TestBase {
 
 	@Test
-	public void loginasBankManager() throws InterruptedException {
+	public void loginasBankManager() throws InterruptedException, IOException {
 		
+		//soft assersion 
+	//	verifyEquals("abc","adf");
+		
+		Thread.sleep(3000);
+
 		log.debug("Inside Login Test");
 		click("bmlBtn_CSS");
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		
 		Assert.assertTrue(isElementPresent(By.cssSelector(OR.getProperty("addCustBtn_CSS"))));
 		
 		log.debug("Login success");
               
-		Assert.fail("Login not successfull");
+		//hardcore assersion
+	//	Assert.fail("Login not successfull");
 		
 
 	}
