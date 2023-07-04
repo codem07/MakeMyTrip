@@ -7,6 +7,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.testng.SkipException;
 
 import com.relevantcodes.extentreports.LogStatus;
 import com.share.base.TestBase;
@@ -16,6 +17,12 @@ public class CustomListeners extends TestBase implements ITestListener {
 
 	public void onTestStart(ITestResult result) {
 		test = extentReport.startTest(result.getName().toUpperCase());
+
+		if (!TestUtil.isTestRunnable(result.getName(), excel)) {
+
+			throw new SkipException("Skipping the test " + result.getName().toUpperCase() + " as th Run mode is no");
+		}
+
 	}
 
 	//
@@ -44,8 +51,11 @@ public class CustomListeners extends TestBase implements ITestListener {
 
 	public void onTestSkipped(ITestResult result) {
 
+		test.log(LogStatus.SKIP, result.getName().toUpperCase() + " Skipped the test as the run mode is no");
+		extentReport.endTest(test);
+		extentReport.flush();
+
 	}
-	
 
 	public void onTestSuccess(ITestResult result) {
 
@@ -53,10 +63,6 @@ public class CustomListeners extends TestBase implements ITestListener {
 		extentReport.endTest(test);
 		extentReport.flush();
 	}
-
-	
-
-	
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 	}

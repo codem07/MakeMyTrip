@@ -12,7 +12,7 @@ import com.share.base.TestBase;
 public class BankManagerLoginTest extends TestBase {
 
 	@Test
-	public void loginasBankManager() throws InterruptedException, IOException {
+	public void bankManagerLoginTest() throws InterruptedException, IOException {
 		
 		//soft assersion 
 	//	verifyEquals("abc","adf");
