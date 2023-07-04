@@ -12,51 +12,28 @@ import org.testng.annotations.Test;
 import com.share.base.TestBase;
 import com.share.utilities.TestUtil;
 
-public class AddCustomerTest extends TestBase  {
+public class AddCustomerTest extends TestBase {
 
-@Test(dataProviderClass=TestUtil.class,dataProvider="db")
-public void addCustomerTest(String FirstName, String LastName, String Postcode, String alerttext) throws InterruptedException, IOException {
-	
-	click("addCustBtn_CSS");
-	Thread.sleep(2000);
+	@Test(dataProviderClass = TestUtil.class, dataProvider = "db")
+	public void addCustomerTest(String FirstName, String LastName, String Postcode, String alerttext)
+			throws InterruptedException, IOException {
 
- type("firstname_CSS",FirstName);
-	Thread.sleep(2000);
+		click("addCustBtn_CSS");
+		type("firstname_CSS", FirstName);
+		type("lastname_CSS", LastName);
+		type("postcode_CSS", Postcode);
+		click("addbtn_CSS");
 
-	type("lastname_CSS",LastName);
-	Thread.sleep(2000);
+		Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+		Assert.assertTrue(alert.getText().contains(alerttext));
+		alert.accept();
+		Thread.sleep(3000);
 
-	type("postcode_CSS",Postcode);
-	Thread.sleep(2000);
-
-	click("addbtn_CSS");
-	Thread.sleep(2000);
-
-
-	
-	Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-	
-	Assert.assertTrue(alert.getText().contains(alerttext));
-	
-	alert.accept();
-	Thread.sleep(3000);
-
-
- System.out.println("this is ADDCT class name: "+this.getClass().getName());
-}
+	}
 
 //@Test(dataProviderClass=TestUtil.class,dataProvider="db")
-public void addCustomerTest2() {
-	
-}
+	public void addCustomerTest2() {
 
-
-
-
+	}
 
 }
-
-
-
-
-

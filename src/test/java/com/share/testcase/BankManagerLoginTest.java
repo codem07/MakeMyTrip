@@ -15,7 +15,7 @@ public class BankManagerLoginTest extends TestBase {
 	public void loginasBankManager() throws InterruptedException, IOException {
 		
 		//soft assersion 
-		verifyEquals("abc","adf");
+	//	verifyEquals("abc","adf");
 		
 		Thread.sleep(3000);
 
@@ -28,7 +28,7 @@ public class BankManagerLoginTest extends TestBase {
 		log.debug("Login success");
               
 		//hardcore assersion
-		Assert.fail("Login not successfull");
+	//	Assert.fail("Login not successfull");
 		
 
 	}
