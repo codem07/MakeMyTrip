@@ -25,6 +25,7 @@ public class AddCustomerTest extends TestBase {
 		}
 
 		click("addCustBtn_CSS");
+
 		type("firstname_CSS", FirstName);
 		type("lastname_CSS", LastName);
 		type("postcode_CSS", Postcode);
@@ -33,7 +34,6 @@ public class AddCustomerTest extends TestBase {
 		Alert alert = wait.until(ExpectedConditions.alertIsPresent());
 		Assert.assertTrue(alert.getText().contains(alerttext));
 		alert.accept();
-	
 
 	}
 

@@ -20,6 +20,7 @@ public class TestUtil extends TestBase {
 //	System.out.println();
 
 	public static void captureScreenshot() throws IOException {
+<<<<<<< HEAD
 
 		LocalDate ld = LocalDate.now();
 
@@ -28,6 +29,20 @@ public class TestUtil extends TestBase {
 		File ssFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(ssFile,
 				new File(System.getProperty("user.dir") + "\\target\\surefire-reports\\html\\" + screenshotName));
+=======
+		
+		 
+      LocalDate ld = LocalDate.now();
+	
+        Date d = new Date();
+		screenshotName = d.toString().replace(":", "_").replace(" ","_");
+		File ssFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(ssFile, new File(System.getProperty("user.dir")+"\\target\\surefire-reports\\html\\"+screenshotName));
+
+	
+	
+		
+>>>>>>> 304d7deaea85fb3db97ae4022788aa2d77e1ea10
 
 	}
 
