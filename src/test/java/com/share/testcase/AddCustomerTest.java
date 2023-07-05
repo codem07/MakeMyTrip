@@ -6,6 +6,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -15,8 +16,13 @@ import com.share.utilities.TestUtil;
 public class AddCustomerTest extends TestBase {
 
 	@Test(dataProviderClass = TestUtil.class, dataProvider = "db")
-	public void addCustomerTest(String FirstName, String LastName, String Postcode, String alerttext)
+	public void addCustomerTest(String FirstName, String LastName, String Postcode, String alerttext, String Runmode)
 			throws InterruptedException, IOException {
+		
+		if (!Runmode.equals("Y")) {
+			
+			throw new SkipException("Skipping the test case as the Run mode for data set is NO");
+		}
 
 		click("addCustBtn_CSS");
 
@@ -28,8 +34,7 @@ public class AddCustomerTest extends TestBase {
 		Alert alert = wait.until(ExpectedConditions.alertIsPresent());
 		Assert.assertTrue(alert.getText().contains(alerttext));
 		alert.accept();
-		Thread.sleep(3000);
-		
+
 	}
 
 //@Test(dataProviderClass=TestUtil.class,dataProvider="db")
