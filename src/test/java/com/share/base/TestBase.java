@@ -3,6 +3,7 @@ package com.share.base;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -47,6 +48,7 @@ public class TestBase {
 	public ExtentReports extentReport = ExtentManager.getInstance();
 	public static ExtentTest test;
 
+	@SuppressWarnings("deprecation")
 	@BeforeSuite
 	public void setUp() {
 
@@ -101,7 +103,7 @@ public class TestBase {
 			driver.manage().timeouts().implicitlyWait(Integer.parseInt(config.getProperty("implicit.wait")),
 					TimeUnit.SECONDS);
 
-			wait = new WebDriverWait(driver, 5);
+			wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		}
 
 	}
