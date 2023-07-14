@@ -58,6 +58,8 @@ public class TestUtil extends TestBase {
 
 	}
 
+	
+	//Runmode
 	public static boolean isTestRunnable(String testName, ExcelReader excel) {
 
 		String sheetName = "test_suite";

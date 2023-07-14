@@ -13,23 +13,22 @@ public class BankManagerLoginTest extends TestBase {
 
 	@Test
 	public void bankManagerLoginTest() throws InterruptedException, IOException {
-		
-		//soft assersion 
-	//	verifyEquals("abc","adf");
-		
+
+		// soft assersion
+		// verifyEquals("abc","adf");
+
 		Thread.sleep(3000);
 
 		log.debug("Inside Login Test");
 		click("bmlBtn_CSS");
 		Thread.sleep(2000);
-		
+
 		Assert.assertTrue(isElementPresent(By.cssSelector(OR.getProperty("addCustBtn_CSS"))));
-		
+
 		log.debug("Login success");
-              
-		//hardcore assersion
-	//	Assert.fail("Login not successfull");
-		
+
+		// hardcore assersion
+		// Assert.fail("Login not successfull");
 
 	}
 

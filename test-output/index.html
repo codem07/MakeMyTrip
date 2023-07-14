@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-TestSuite" class="navigator-link">
-              <span class="suite-name border-skipped">TestSuite</span>
+              <span class="suite-name border-failed">TestSuite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,21 +92,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,  1 skipped,  </span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title skipped">Skipped methods</span>
-                    <span class="show-or-hide-methods skipped">
-                      <a href="#" panel-name="suite-TestSuite" class="hide-methods skipped suite-TestSuite"> (hide)</a> <!-- hide-methods skipped suite-TestSuite -->
-                      <a href="#" panel-name="suite-TestSuite" class="show-methods skipped suite-TestSuite"> (show)</a> <!-- show-methods skipped suite-TestSuite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-TestSuite" class="hide-methods failed suite-TestSuite"> (hide)</a> <!-- hide-methods failed suite-TestSuite -->
+                      <a href="#" panel-name="suite-TestSuite" class="show-methods failed suite-TestSuite"> (show)</a> <!-- show-methods failed suite-TestSuite -->
                     </span>
-                    <div class="method-list-content skipped suite-TestSuite">
+                    <div class="method-list-content failed suite-TestSuite">
                       <span>
-                        <img src="skipped.png" width="3%"/>
-                        <a href="#" panel-name="suite-TestSuite" title="com.share.testcase.CreateAccount" class="method navigator-link" hash-for-method="createAccount">createAccount</a> <!-- method navigator-link -->
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-TestSuite" title="com.share.testcase.GitHubSync" class="method navigator-link" hash-for-method="gitInstall">gitInstall</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content skipped suite-TestSuite -->
+                    </div> <!-- method-list-content failed suite-TestSuite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -118,26 +118,28 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-TestSuite" class="panel TestSuite">
-          <div class="suite-TestSuite-class-skipped">
+          <div class="suite-TestSuite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="skipped.png"/>
-              <span class="class-name">com.share.testcase.CreateAccount</span>
+              <img src="failed.png"/>
+              <span class="class-name">com.share.testcase.GitHubSync</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="createAccount">
-                  </a> <!-- createAccount -->
-                  <span class="method-name">createAccount</span>
-                  <div class="stack-trace">org.testng.SkipException: Skipping the test CREATEACCOUNT as th Run mode is no
-	at com.share.listeners.CustomListeners.onTestStart(CustomListeners.java:24)
+                  <a name="gitInstall">
+                  </a> <!-- gitInstall -->
+                  <span class="method-name">gitInstall</span>
+                  <div class="stack-trace">java.lang.RuntimeException: java.lang.NegativeArraySizeException: -1
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-... Removed 24 stack frames
+Caused by: java.lang.NegativeArraySizeException: -1
+	at com.share.utilities.TestUtil.getData(TestUtil.java:45)
+	... 25 more
+... Removed 32 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-TestSuite-class-skipped -->
+          </div> <!-- suite-TestSuite-class-failed -->
         </div> <!-- panel TestSuite -->
         <div panel-name="test-xml-TestSuite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -153,11 +155,11 @@
     &lt;listener class-name=&quot;org.uncommons.reportng.JUnitXMLReporter&quot;/&gt;
     &lt;listener class-name=&quot;com.share.listeners.CustomListeners&quot;/&gt;
   &lt;/listeners&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;CreateAccount&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;GitHub Sync&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.share.testcase.CreateAccount&quot;/&gt;
+      &lt;class name=&quot;com.share.testcase.GitHubSync&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- CreateAccount --&gt;
+  &lt;/test&gt; &lt;!-- GitHub Sync --&gt;
 &lt;/suite&gt; &lt;!-- TestSuite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -169,7 +171,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">CreateAccount (1 class)</span>
+                <span class="test-name">GitHub Sync (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -197,14 +199,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'createAccount')
-data.setCell(0, 2, 'com.share.testcase.CreateAccount')
-data.setCell(0, 3, 15);
+data.setCell(0, 1, 'gitInstall')
+data.setCell(0, 2, 'com.share.testcase.GitHubSync')
+data.setCell(0, 3, 0);
 window.suiteTableData['TestSuite']= { tableData: data, tableDiv: 'times-div-TestSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 15 ms</span>
+              <span class="suite-total-time">Total running time: 0 ms</span>
               <div id="times-div-TestSuite">
               </div> <!-- times-div-TestSuite -->
             </div> <!-- times-div -->
@@ -230,14 +232,14 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.share.testcase.CreateAccount</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.share.testcase.GitHubSync</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">setUp</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">6568 ms</span>
+                <span class="method-start">6447 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

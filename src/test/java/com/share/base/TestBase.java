@@ -117,7 +117,7 @@ public class TestBase {
 		} else if (locator.endsWith("_XPATH")) {
 
 			driver.findElement(By.xpath(OR.getProperty(locator))).click();
-			//test.log(LogStatus.INFO, "Clicked on " + locator);
+			test.log(LogStatus.INFO, "Clicked on " + locator);
 
 		} else if (locator.endsWith("_ID")) {
 

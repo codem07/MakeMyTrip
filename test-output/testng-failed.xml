@@ -6,15 +6,15 @@
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
     <listener class-name="com.share.listeners.CustomListeners"/>
   </listeners>
-  <test thread-count="5" name="CreateAccount(failed)">
+  <test thread-count="5" name="GitHub Sync(failed)">
     <classes>
-      <class name="com.share.testcase.CreateAccount">
+      <class name="com.share.testcase.GitHubSync">
         <methods>
           <include name="setUp"/>
+          <include name="gitInstall"/>
           <include name="tearDown"/>
-          <include name="createAccount"/>
         </methods>
-      </class> <!-- com.share.testcase.CreateAccount -->
+      </class> <!-- com.share.testcase.GitHubSync -->
     </classes>
-  </test> <!-- CreateAccount(failed) -->
+  </test> <!-- GitHub Sync(failed) -->
 </suite> <!-- Failed suite [TestSuite] -->

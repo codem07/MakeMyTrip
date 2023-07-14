@@ -9,10 +9,9 @@
 	</listeners>
 
 
-	
-<test name="CreateAccount">
+	<test name="GitHub Sync">
 		<classes>
-			<class name="com.share.testcase.CreateAccount" />
+			<class name="com.share.testcase.GitHubSync" />
 		</classes>
 	</test> <!-- Test -->
 
