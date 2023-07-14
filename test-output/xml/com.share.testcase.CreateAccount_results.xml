@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CreateAccount"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="1"
+           time="0.015">
+  <properties />
+  
+            <testcase name="createAccount" time="0.0" classname="com.share.testcase.CreateAccount">
+          <skipped />
+    </testcase>
+  
+  
+</testsuite>

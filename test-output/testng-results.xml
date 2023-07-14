@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="6" total="8" passed="1" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="0" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-06-12T12:42:54 IST" name="Default suite" finished-at="2023-06-12T12:43:16 IST" duration-ms="21607">
+  <suite started-at="2023-07-13T22:30:49 IST" name="TestSuite" finished-at="2023-07-13T22:30:49 IST" duration-ms="224">
     <groups>
     </groups>
-    <test started-at="2023-06-12T12:42:54 IST" name="Default test" finished-at="2023-06-12T12:43:16 IST" duration-ms="21607">
-      <class name="com.share.testcase.BankManagerLoginTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.share.testcase.BankManagerLoginTest@6aecbb8d]" started-at="2023-06-12T12:42:52 IST" name="setUp" finished-at="2023-06-12T12:42:54 IST" duration-ms="2305" status="PASS">
+    <test started-at="2023-07-13T22:30:49 IST" name="CreateAccount" finished-at="2023-07-13T22:30:49 IST" duration-ms="224">
+      <class name="com.share.testcase.CreateAccount">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.share.testcase.CreateAccount@293bb8a5]" started-at="2023-07-13T22:30:43 IST" name="setUp" finished-at="2023-07-13T22:30:49 IST" duration-ms="6328" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginasBankManager()[pri:0, instance:com.share.testcase.BankManagerLoginTest@6aecbb8d]" started-at="2023-06-12T12:42:54 IST" name="loginasBankManager" finished-at="2023-06-12T12:42:57 IST" duration-ms="3095" status="FAIL">
-          <exception class="java.lang.AssertionError">
+        <test-method signature="createAccount()[pri:0, instance:com.share.testcase.CreateAccount@293bb8a5]" started-at="2023-07-13T22:30:49 IST" name="createAccount" finished-at="2023-07-13T22:30:49 IST" duration-ms="15" status="SKIP">
+          <exception class="org.testng.SkipException">
             <message>
-              <![CDATA[Login not successfull]]>
+              <![CDATA[Skipping the test CREATEACCOUNT as th Run mode is no]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Login not successfull
-at org.testng.Assert.fail(Assert.java:110)
-at com.share.testcase.BankManagerLoginTest.loginasBankManager(BankManagerLoginTest.java:23)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+              <![CDATA[org.testng.SkipException: Skipping the test CREATEACCOUNT as th Run mode is no
+at com.share.listeners.CustomListeners.onTestStart(CustomListeners.java:24)
+at org.testng.internal.TestListenerHelper.runTestListeners(TestListenerHelper.java:106)
+at org.testng.internal.invokers.TestInvoker.runTestResultListener(TestInvoker.java:277)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:638)
 at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
 at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
 at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
@@ -50,43 +46,15 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginasBankManager -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.share.testcase.BankManagerLoginTest@6aecbb8d]" started-at="2023-06-12T12:43:16 IST" name="tearDown" finished-at="2023-06-12T12:43:16 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- createAccount -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.share.testcase.CreateAccount@293bb8a5]" started-at="2023-07-13T22:30:49 IST" name="tearDown" finished-at="2023-07-13T22:30:49 IST" duration-ms="116" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.share.testcase.BankManagerLoginTest -->
-      <class name="com.share.testcase.AddCustomerTest">
-        <test-method signature="addCustomer(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.share.testcase.AddCustomerTest@60a2630a]" started-at="2023-06-12T12:42:57 IST" name="addCustomer" data-provider="getData" finished-at="2023-06-12T12:43:16 IST" duration-ms="18466" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[bhautikaa]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[radaadiyaa]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[0101agggttt]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Customer added successfully]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addCustomer -->
-      </class> <!-- com.share.testcase.AddCustomerTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.share.testcase.CreateAccount -->
+    </test> <!-- CreateAccount -->
+  </suite> <!-- TestSuite -->
 </testng-results>
