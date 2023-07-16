@@ -3,7 +3,6 @@ package com.share.testcase;
 import org.testng.annotations.Test;
 
 import com.share.base.TestBase;
-import com.share.testcase.commonFeature.CreateAccount;
 import com.share.utilities.TestUtil;
 
 public class GitHubSync extends TestBase {
@@ -11,7 +10,7 @@ public class GitHubSync extends TestBase {
 	
 
 	@Test(dataProviderClass = TestUtil.class, dataProvider = "db")
-	public void gitInstall(String AccountName) {
+	public void gitInstall() {
 
 		click("signupLogin_XPATH");
 		click("countinuewithDummyAuth_XPATH");
