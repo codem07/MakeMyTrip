@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.Properties;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
@@ -47,6 +48,7 @@ public class TestBase {
 	public static WebDriverWait wait;
 	public ExtentReports extentReport = ExtentManager.getInstance();
 	public static ExtentTest test;
+	public static Random random = new Random();
 
 	@SuppressWarnings("deprecation")
 	@BeforeSuite
@@ -119,12 +121,32 @@ public class TestBase {
 			driver.findElement(By.xpath(OR.getProperty(locator))).click();
 			test.log(LogStatus.INFO, "Clicked on " + locator);
 
-		} else if (locator.endsWith("_ID")) {
+		}  else if (locator.endsWith("_indexXPATH")) {
+             
+			driver.findElement(By.xpath(OR.getProperty(locator)+"["+Integer.toString(20) +"]")).click();
+			test.log(LogStatus.INFO, "Clicked on " + locator);
+
+		}else if (locator.endsWith("_ID")) {
 
 			driver.findElement(By.id(OR.getProperty(locator))).click();
 			test.log(LogStatus.INFO, "Clicked on " + locator);
 		}
+		
+		
 	}
+	
+	public static String getText(String locator) {
+		
+		
+	    WebElement element = driver.findElement(By.xpath(OR.getProperty(locator)));
+		test.log(LogStatus.INFO, "gettext for this " + locator);
+		String str = element.getText();
+		return str;
+		
+	}
+	
+	
+	
 
 	public static void type(String locator, String value) {
 		if (locator.endsWith("_CSS")) {
@@ -182,7 +204,8 @@ public class TestBase {
 		try {
 
 			Assert.assertEquals(actual, expected);
-
+			test.log(LogStatus.PASS, "Verification success: " + actual + " equal to " + expected);
+			//test.log(LogStatus.PASS, test.addScreenCapture(TestUtil.screenshotName));
 		} catch (Throwable t) {
 
 			// ReportNG
@@ -199,6 +222,9 @@ public class TestBase {
 
 		}
 	}
+	
+	
+	
 
 	@AfterSuite
 	public void tearDown() {

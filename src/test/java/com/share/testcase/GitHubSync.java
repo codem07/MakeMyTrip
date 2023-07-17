@@ -8,27 +8,33 @@ import org.testng.annotations.Test;
 import com.share.base.TestBase;
 import com.share.utilities.TestUtil;
 
-public class GitHubSync extends TestBase {
+public class GitHubSync extends CommonFeature {
 
 	
 
-	@Test(dataProviderClass = TestUtil.class, dataProvider = "db")
-	public void gitHubSync(String Runmode) throws InterruptedException, IOException{
+	@Test
+	public void gitHubSync() throws InterruptedException, IOException{
 
 
-		if (!Runmode.equals("Y")) {
+		/*if (!runmode.equals("Y")) {
 			
 			throw new SkipException("Skipping the test case as the Run mode for data set is NO");
-		}
+		}*/
 		
 		
-		click("signupLogin_XPATH");
+		/*click("signupLogin_XPATH");
+		Thread.sleep(3000);
 		click("countinuewithDummyAuth_XPATH");
-		type("countinuewithDummyAuth_XPATH","bhautik-vase");
+		Thread.sleep(3000);
+		type("usernameoremailName_XPATH","bhautik-vase");
+		Thread.sleep(3000);
 		click("login-btn_XPATH");
+		*/
 		
-		
-		
+		signUp();
 	}
+	
+	
+	
 
 }
