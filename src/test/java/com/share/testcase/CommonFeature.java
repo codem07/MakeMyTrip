@@ -13,7 +13,7 @@ import com.share.utilities.TestUtil;
 
 public class CommonFeature extends TestBase {
 	public static ExtentTest test;
-	public void signUp() throws InterruptedException, IOException {
+	public void signUp(String username) throws InterruptedException, IOException {
 
 		// clicking on signUp/Login button
 		click("signupLogin_XPATH");
@@ -22,7 +22,7 @@ public class CommonFeature extends TestBase {
 		click("countinuewithDummyAuth_XPATH");
 
 		// typing username or email into input box
-		type("usernameoremailName_XPATH", "bhautik-vase14");
+		type("usernameoremailName_XPATH", username);
 
 		// clicking login button
 		click("login-btn_XPATH");
@@ -82,5 +82,55 @@ public class CommonFeature extends TestBase {
 			test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
 
 		}
+	}
+	public void createCompany(String companyname) throws IOException, InterruptedException {
+		Thread.sleep(3000);
+		click("profile-dp-img_CSS");
+		click("join-a-company-btn_XPATH");
+		
+		//Validating "Add new company" tab class by getting class value form "/manage-companies/join" page 
+		WebElement elementNew = driver.findElement(By.cssSelector(OR.getProperty("add-new-company-tab_CSS")));
+		String strNew = elementNew.getAttribute("class");
+
+		verifyEquals(strNew, "css-7lvt0d");
+		
+		click("add-new-company-tab_CSS");
+		click("pop-up-cross-icon_CSS");
+		type("company-Name-input_XPATH", "ss-test-"+companyname);
+		type("company-Website-input_XPATH",companyname+".com");
+		type("company-Email-Address-input_XPATH",companyname+"@"+companyname+".com");
+		click("add-company-btn_CSS");
+		click("company-Select-radio-btn_CSS");
+        click("proceed-to-select-plan-btn_CSS");
+        
+        
+        
+		
+		
+		
+	}
+	
+	
+	
+	public void login(String username) throws InterruptedException, IOException {
+		
+		click("signupLogin_XPATH");
+
+		// clicking on continue with dummy auth button
+		click("countinuewithDummyAuth_XPATH");
+
+		// typing username or email into input box
+		type("usernameoremailName_XPATH", username);
+
+		// clicking login button
+		click("login-btn_XPATH");
+		
+		  Thread.sleep(20000);
+			// Validating pop up which is appearing after sighUp
+			WebElement elementPopUp = driver.findElement(By.xpath(OR.getProperty("PopUp_XPATH")));
+			String strPopUp = elementPopUp.getAttribute("class");
+
+			verifyEquals(strPopUp, "css-1xnhj1e");
+		
 	}
 }

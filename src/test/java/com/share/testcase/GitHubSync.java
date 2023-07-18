@@ -3,6 +3,7 @@ package com.share.testcase;
 import java.io.IOException;
 
 import org.testng.SkipException;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.share.base.TestBase;
@@ -12,8 +13,8 @@ public class GitHubSync extends CommonFeature {
 
 	
 
-	@Test
-	public void gitHubSync() throws InterruptedException, IOException{
+	@Test(dataProviderClass = TestUtil.class, dataProvider="db")
+	public void gitHubSync(String username, String companyname) throws InterruptedException, IOException{
 
 
 		/*if (!runmode.equals("Y")) {
@@ -31,7 +32,11 @@ public class GitHubSync extends CommonFeature {
 		click("login-btn_XPATH");
 		*/
 		
-		signUp();
+		signUp(username);
+        createCompany(companyname);
+		
+		
+		
 	}
 	
 	
