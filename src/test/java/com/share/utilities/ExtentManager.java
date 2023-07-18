@@ -2,8 +2,11 @@ package com.share.utilities;
 
 import java.io.File;
 
-import com.relevantcodes.extentreports.DisplayOrder;
-import com.relevantcodes.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
+
+
 
 public class ExtentManager {
 	
@@ -11,10 +14,15 @@ public class ExtentManager {
 	
 	public static ExtentReports getInstance() {
 		if(extent==null) {
+			ExtentSparkReporter spark = new ExtentSparkReporter("index.html");
 			
-			
-			extent = new ExtentReports(System.getProperty("user.dir")+"\\target\\surefire-reports\\html\\extent.html",true,DisplayOrder.OLDEST_FIRST);
-		extent.loadConfig(new File(System.getProperty("user.dir")+"\\src\\test\\resources\\extentconfig\\ReportsConfig.xml"));
+			//extent = new ExtentReports(System.getProperty("user.dir")+"\\target\\surefire-reports\\html\\extent.html",true,DisplayOrder.OLDEST_FIRST);
+		//extent.loadConfig(new File(System.getProperty("user.dir")+"\\src\\test\\resources\\extentconfig\\ReportsConfig.xml"));
+		
+		spark.config().setTheme(Theme.DARK);
+		spark.config().setDocumentTitle("StackShare Automation Report");
+		spark.config().setReportName("Extent Report");
+		extent.attachReporter(spark);
 		
 		
 		
