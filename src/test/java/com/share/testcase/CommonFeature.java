@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Random;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -21,7 +22,7 @@ public class CommonFeature extends TestBase {
 		click("countinuewithDummyAuth_XPATH");
 
 		// typing username or email into input box
-		type("usernameoremailName_XPATH", "bhautik-vase13");
+		type("usernameoremailName_XPATH", "bhautik-vase14");
 
 		// clicking login button
 		click("login-btn_XPATH");
@@ -57,13 +58,13 @@ public class CommonFeature extends TestBase {
 					}
 
 					click("continue-btn_XPATH");
-
+					  Thread.sleep(20000);
 					// Validating pop up which is appearing after sighUp
 					WebElement elementPopUp = driver.findElement(By.xpath(OR.getProperty("PopUp_XPATH")));
 					String strPopUp = elementPopUp.getAttribute("class");
 
 					verifyEquals(strPopUp, "css-1xnhj1e");
-
+                   
 					click("ok-got-it-btn_XPATH");
 
 					// Validating account should not have any plan selected by verifying "new"
