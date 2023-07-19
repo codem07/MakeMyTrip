@@ -9,23 +9,10 @@
 	</listeners>
 
 
-	<test name="BankManagerLoginTest">
+	<test name="GitHub Sync">
 		<classes>
-			<class name="com.share.testcase.BankManagerLoginTest" />
+			<class name="com.share.testcase.GitHubSync" />
 		</classes>
 	</test> <!-- Test -->
-
-	<test name="Add Customer Test">
-		<classes>
-			<class name="com.share.testcase.AddCustomerTest" />
-		</classes>
-	</test> <!-- Test -->
-
-<test name="Open Account Test">
-		<classes>
-			<class name="com.share.testcase.OpenAccountTest" />
-		</classes>
-	</test> <!-- Test -->
-
 
 </suite> <!-- Suite -->

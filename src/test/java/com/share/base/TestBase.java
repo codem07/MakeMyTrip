@@ -3,8 +3,10 @@ package com.share.base;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.Properties;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
@@ -46,7 +48,9 @@ public class TestBase {
 	public static WebDriverWait wait;
 	public ExtentReports extentReport = ExtentManager.getInstance();
 	public static ExtentTest test;
+	public static Random random = new Random();
 
+	@SuppressWarnings("deprecation")
 	@BeforeSuite
 	public void setUp() {
 
@@ -101,7 +105,7 @@ public class TestBase {
 			driver.manage().timeouts().implicitlyWait(Integer.parseInt(config.getProperty("implicit.wait")),
 					TimeUnit.SECONDS);
 
-			wait = new WebDriverWait(driver, 5);
+			wait = new WebDriverWait(driver, 20);
 		}
 
 	}
@@ -117,8 +121,32 @@ public class TestBase {
 			driver.findElement(By.xpath(OR.getProperty(locator))).click();
 			test.log(LogStatus.INFO, "Clicked on " + locator);
 
+		}  else if (locator.endsWith("_indexXPATH")) {
+             
+			driver.findElement(By.xpath(OR.getProperty(locator)+"["+Integer.toString(20) +"]")).click();
+			test.log(LogStatus.INFO, "Clicked on " + locator);
+
+		}else if (locator.endsWith("_ID")) {
+
+			driver.findElement(By.id(OR.getProperty(locator))).click();
+			test.log(LogStatus.INFO, "Clicked on " + locator);
 		}
+		
+		
 	}
+	
+	public static String getText(String locator) {
+		
+		
+	    WebElement element = driver.findElement(By.xpath(OR.getProperty(locator)));
+		test.log(LogStatus.INFO, "gettext for this " + locator);
+		String str = element.getText();
+		return str;
+		
+	}
+	
+	
+	
 
 	public static void type(String locator, String value) {
 		if (locator.endsWith("_CSS")) {
@@ -132,32 +160,35 @@ public class TestBase {
 			driver.findElement(By.xpath(OR.getProperty(locator))).sendKeys(value);
 			test.log(LogStatus.INFO, "Typed " + value + " on " + locator);
 
+		} else if (locator.endsWith("_ID")) {
+
+			driver.findElement(By.id(OR.getProperty(locator))).sendKeys(value);
+			test.log(LogStatus.INFO, "Typed " + value + " on " + locator);
 		}
 	}
-	
+
 	static WebElement dropdown;
+
 	public void select(String locator, String value) {
-		
+
 		if (locator.endsWith("_CSS")) {
 
 			dropdown = driver.findElement(By.cssSelector(OR.getProperty(locator)));
-			
 
 		} else if (locator.endsWith("_XPATH")) {
 
 			dropdown = driver.findElement(By.xpath(OR.getProperty(locator)));
 
-		}else if (locator.endsWith("_ID")) {
+		} else if (locator.endsWith("_ID")) {
 
 			dropdown = driver.findElement(By.id(OR.getProperty(locator)));
 
 		}
-	
+
 		Select select = new Select(dropdown);
 		select.selectByVisibleText(value);
 		test.log(LogStatus.INFO, "Selecting from dropdown" + locator + " value as " + value);
 
-		
 	}
 
 	public boolean isElementPresent(By by) {
@@ -173,23 +204,27 @@ public class TestBase {
 		try {
 
 			Assert.assertEquals(actual, expected);
-
+			test.log(LogStatus.PASS, "Verification success: " + actual + " equal to " + expected);
+			//test.log(LogStatus.PASS, test.addScreenCapture(TestUtil.screenshotName));
 		} catch (Throwable t) {
 
-			//ReportNG
+			// ReportNG
 			TestUtil.captureScreenshot();
 			Reporter.log("<br>" + "Verification failure : " + t.getMessage() + "<br>");
 			Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + "><img src=" + TestUtil.screenshotName
 					+ " height=200 width=200></img></a>");
 			Reporter.log("<br>");
 			Reporter.log("<br>");
-		
-			//Extent Report
-			test.log(LogStatus.FAIL, "Verification failure : "+t.getMessage());
+
+			// Extent Report
+			test.log(LogStatus.FAIL, "Verification failure : " + t.getMessage());
 			test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
-		
+
 		}
 	}
+	
+	
+	
 
 	@AfterSuite
 	public void tearDown() {

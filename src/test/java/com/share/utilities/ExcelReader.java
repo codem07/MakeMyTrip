@@ -67,9 +67,9 @@ public class ExcelReader {
 	
 	
 	
-	// returns the data from a cell                                 2
+	// returns the data from a cell                              
 	public String getCellData(String sheetName,String colName,int rowNum){
-		System.out.println("colname" +colName);
+		//System.out.println("colname" +colName);
 		try{
 			if(rowNum <=0)
 				return "";
@@ -82,7 +82,7 @@ public class ExcelReader {
 		sheet = workbook.getSheetAt(index);
 		row=sheet.getRow(0);
 		for(int i=0;i<row.getLastCellNum();i++){
-			System.out.println(row.getCell(i).getStringCellValue().trim());
+			//System.out.println(row.getCell(i).getStringCellValue().trim());
 			if(row.getCell(i).getStringCellValue().trim().equals(colName.trim()))
 				col_Num=i;
 		}

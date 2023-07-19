@@ -19,14 +19,12 @@ public class CustomListeners extends TestBase implements ITestListener {
 
 		test = extentReport.startTest(result.getName().toUpperCase());
 
-<<<<<<< HEAD
 		if (!TestUtil.isTestRunnable(result.getName(), excel)) {
 
 			throw new SkipException("Skipping the test " + result.getName().toUpperCase() + " as th Run mode is no");
 		}
 
-=======
->>>>>>> 304d7deaea85fb3db97ae4022788aa2d77e1ea10
+
 	}
 
 	//
@@ -57,7 +55,7 @@ public class CustomListeners extends TestBase implements ITestListener {
 
 	public void onTestSkipped(ITestResult result) {
 
-		test.log(LogStatus.SKIP, result.getName().toUpperCase() + " Skipped the test as the run mode is no");
+		test.log(LogStatus.SKIP, result.getName().toUpperCase() + " Skipped the test as the runmode is no");
 		extentReport.endTest(test);
 		extentReport.flush();
 
