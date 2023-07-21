@@ -200,13 +200,16 @@ public class CommonFeature extends TestBase {
 	    click("install-GitHub-btn_CSS");
 
 	   
+
 	    WebElement elementContinueBtn = driver.findElement(By.xpath(OR.getProperty("continue-btn-by-text_XPATH")));
+
 		String strContinueBtnClass = elementContinueBtn.getAttribute("class");
 	    
 	    if(strContinueBtnClass.equals("css-vy727i")) {
 		    click("continue-btn_CSS");
 	    	
 	    }else if(strContinueBtnClass.equals("css-w56prg")) {
+
 	    	type("org-URL-inputbox_XPATH",orgURL);
 	    	 click("continue-btn_CSS");
 	    }
