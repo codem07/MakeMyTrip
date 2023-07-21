@@ -63,7 +63,7 @@ public class CustomListeners extends TestBase implements ITestListener {
 
 	public void onTestSuccess(ITestResult result) {
 
-		test.log(LogStatus.PASS, result.getName().toUpperCase() + "PASS");
+		test.log(LogStatus.PASS, result.getName().toUpperCase() + " is PASS");
 		extentReport.endTest(test);
 		extentReport.flush();
 	}
