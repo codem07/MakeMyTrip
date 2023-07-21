@@ -34,7 +34,7 @@ public class GitHubSync extends CommonFeature {
 		
 		//signUp(username);
 		//login(username);
-      //  createCompany(companyname, plan);
+        createCompany(companyname, plan);
         gitHubSync(orgURL, companyname);
 		
 		
