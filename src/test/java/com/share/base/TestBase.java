@@ -14,6 +14,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -49,6 +50,7 @@ public class TestBase {
 	public ExtentReports extentReport = ExtentManager.getInstance();
 	public static ExtentTest test;
 	public static Random random = new Random();
+	public static ChromeOptions options;
 
 	@SuppressWarnings("deprecation")
 	@BeforeSuite
@@ -95,8 +97,13 @@ public class TestBase {
 
 				// System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir" +
 				// "\\src\\test\\resources\\executables\\chromedriver.exe"));
+		
+				
+				ChromeOptions options = new ChromeOptions();
+				options.addArguments("user-data-dir=C:/Users/Bacancy/AppData/Local/Google/Chrome/User Data/Profile 31");
+				options.addArguments("--start-maximized");
 				WebDriverManager.chromedriver().setup();
-				driver = new ChromeDriver();
+				driver = new ChromeDriver(options);
 				log.debug("Chrome Launched !!!");
 			}
 
@@ -105,7 +112,7 @@ public class TestBase {
 			driver.manage().timeouts().implicitlyWait(Integer.parseInt(config.getProperty("implicit.wait")),
 					TimeUnit.SECONDS);
 
-			wait = new WebDriverWait(driver, 20);
+			//wait = new WebDriverWait(driver, 20);
 		}
 
 	}
@@ -222,18 +229,32 @@ public class TestBase {
 
 		}
 	}
+	public  void testLogPASS(String message) {
+		test.log(LogStatus.PASS, message);
+	}
+	public  void testLogFail(String message) {
+		test.log(LogStatus.FAIL, message);
+	}
 	
+	public  void testLogINFO(String message) {
+		test.log(LogStatus.INFO, message);
+	}
+	
+	public  void testLogSKIP(String message) {
+		test.log(LogStatus.SKIP, message);
+	}
 	
 	
 
 	@AfterSuite
 	public void tearDown() {
 
-		if (driver != null) {
+		/*if (driver != null) {
 			driver.quit();
 		}
 
-		log.debug("test execution completed");
+		log.debug("test execution completed");*/	
+		
 	}
 
 }
