@@ -174,6 +174,9 @@ public class CommonFeature extends TestBase {
 
 	}
 
+
+	@SuppressWarnings("unlikely-arg-type")
+
 	public void gitHubSync(String orgURL, String companyname) throws IOException {
 
 	
@@ -195,10 +198,19 @@ public class CommonFeature extends TestBase {
 		verifyEquals(strCompanyNameText,"ss-test-" + companyname);
 				
 	    click("install-GitHub-btn_CSS");
-	    
-	    type("org-URL-inputbox_XPATH",orgURL);
 
-	    click("continue-btn_CSS");
+	   
+	    WebElement elementContinueBtn = driver.findElement(By.cssSelector(OR.getProperty("continue-btn_CSS")));
+		String strContinueBtnClass = elementContinueBtn.getAttribute("class");
+	    
+	    if(strContinueBtnClass.equals("css-vy727i")) {
+		    click("continue-btn_CSS");
+	    	
+	    }else {
+	    	type("org-URL-inputbox_XPATH",orgURL);
+	    	 click("continue-btn_CSS");
+	    }
+
 	    
 	    click("next-btn_CSS");
 	    click("next-btn_CSS");
