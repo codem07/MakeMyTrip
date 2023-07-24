@@ -15,14 +15,13 @@ public class ExtentManager {
 	public static ExtentReports getInstance() {
 		if(extent==null) {
 			ExtentSparkReporter spark = new ExtentSparkReporter("index.html");
+			final File config = new File("");
 			
-			extent = new ExtentReports();
-		//loadConfig(new File(System.getProperty("user.dir")+"\\src\\test\\resources\\extentconfig\\ReportsConfig.xml"));
 		
-		spark.config().setTheme(Theme.DARK);
+	/*	spark.config().setTheme(Theme.DARK);
 		spark.config().setDocumentTitle("StackShare Automation Report");
 		spark.config().setReportName("Extent Report");
-		extent.attachReporter(spark);
+		*/extent.attachReporter(spark);
 		
 		
 		
