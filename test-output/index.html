@@ -103,7 +103,7 @@
                     <div class="method-list-content failed suite-TestSuite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-TestSuite" title="com.share.testcase.GitHubSync" class="method navigator-link" hash-for-method="gitInstall">gitInstall</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-TestSuite" title="com.share.testcase.GitHubSync" class="method navigator-link" hash-for-method="gitHubSync">gitHubSync</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-TestSuite -->
@@ -126,15 +126,14 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="gitInstall">
-                  </a> <!-- gitInstall -->
-                  <span class="method-name">gitInstall</span>
-                  <div class="stack-trace">java.lang.RuntimeException: java.lang.NegativeArraySizeException: -1
+                  <a name="gitHubSync">
+                  </a> <!-- gitHubSync -->
+                  <span class="method-name">gitHubSync</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at com.share.testcase.CommonFeature.signUp(CommonFeature.java:82)
+	at com.share.testcase.GitHubSync.gitHubSync(GitHubSync.java:34)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-Caused by: java.lang.NegativeArraySizeException: -1
-	at com.share.utilities.TestUtil.getData(TestUtil.java:45)
-	... 25 more
-... Removed 32 stack frames
+... Removed 27 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -199,14 +198,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'gitInstall')
+data.setCell(0, 1, 'gitHubSync')
 data.setCell(0, 2, 'com.share.testcase.GitHubSync')
-data.setCell(0, 3, 0);
+data.setCell(0, 3, 15492);
 window.suiteTableData['TestSuite']= { tableData: data, tableDiv: 'times-div-TestSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 0 ms</span>
+              <span class="suite-total-time">Total running time: 15 seconds</span>
               <div id="times-div-TestSuite">
               </div> <!-- times-div-TestSuite -->
             </div> <!-- times-div -->
@@ -217,6 +216,15 @@ return data;
             <span class="header-content">Reporter output for TestSuite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">gitHubSync</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output">Capturing SS</span>
+                <span class="reporter-method-output"><a target="_blank" href=Mon_Jul_24_12_47_31_IST_2023>Screenshot</a></span>
+                <span class="reporter-method-output"><br></span>
+                <span class="reporter-method-output"><a target="_blank" href=Mon_Jul_24_12_47_31_IST_2023><img src=Mon_Jul_24_12_47_31_IST_2023 height=200 width=200></img></a></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-TestSuite" class="panel">
@@ -237,9 +245,15 @@ return data;
                 <span class="method-name">setUp</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">gitHubSync</span>
+                <span class="method-start">10368 ms</span>
+              </div> <!-- test-method -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">6447 ms</span>
+                <span class="method-start">26249 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

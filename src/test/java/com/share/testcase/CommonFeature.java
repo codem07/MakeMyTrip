@@ -6,8 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.relevantcodes.extentreports.ExtentTest;
-import com.relevantcodes.extentreports.LogStatus;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.Markup;
 import com.share.base.TestBase;
 import com.share.utilities.TestUtil;
 
@@ -78,8 +79,8 @@ public class CommonFeature extends TestBase {
 
 		}} catch (Throwable t) {
 
-			test.log(LogStatus.FAIL, "Account is already exist" );
-			test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
+			test.log(Status.FAIL, "Account is already exist" );
+			test.log(Status.FAIL, (Markup) test.addScreenCaptureFromBase64String(TestUtil.screenshotName));
 
 		}
 	}

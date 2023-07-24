@@ -12,7 +12,7 @@
 <body>
 <h1>GitHub Sync</h1>
 <p>
-  Test duration: 6.187s
+  Test duration: 25.961s
 </p>
 
 
@@ -25,25 +25,35 @@
             
 <tr>
   <td class="method">
-                  gitInstall
+                  gitHubSync
       </td>
   <td class="duration">
-    0.000s
+    15.492s
   </td>
   <td class="result">
         
     
-        
+            <div class="testOutput">
+                        Capturing SS
+                                <a target="_blank" href=Mon_Jul_24_12_47_31_IST_2023>Screenshot</a>
+                                <br>
+                                <a target="_blank" href=Mon_Jul_24_12_47_31_IST_2023><img src=Mon_Jul_24_12_47_31_IST_2023 height=200 width=200></img></a>
+                  </div>
+    
 
-        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>java.lang.RuntimeException: java.lang.NegativeArraySizeException: -1</b></a><br />
+        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>java.lang.NullPointerException</b></a><br />
     <div class="stackTrace" id="exception-0">
-              org.testng.internal.invokers.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:57)<br />
-              org.testng.internal.invokers.MethodInvocationHelper.invokeDataProvider(MethodInvocationHelper.java:157)<br />
-              org.testng.internal.Parameters.handleParameters(Parameters.java:803)<br />
-              org.testng.internal.Parameters.handleParameters(Parameters.java:728)<br />
-              org.testng.internal.invokers.ParameterHandler.handleParameters(ParameterHandler.java:72)<br />
-              org.testng.internal.invokers.ParameterHandler.createParameters(ParameterHandler.java:51)<br />
-              org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:924)<br />
+              com.share.testcase.CommonFeature.signUp(CommonFeature.java:82)<br />
+              com.share.testcase.GitHubSync.gitHubSync(GitHubSync.java:34)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
+              org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)<br />
+              org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)<br />
+              org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)<br />
+              org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)<br />
+              org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)<br />
               org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)<br />
               org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)<br />
               org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)<br />
@@ -63,43 +73,7 @@
               org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br />
               org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br />
               org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)<br />
-                    <b>Caused by: </b> <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse">java.lang.NegativeArraySizeException: -1</a><br />
-        <div class="stackTrace" id="exception-1">
-                      com.share.utilities.TestUtil.getData(TestUtil.java:45)<br />
-                      java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
-                      java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
-                      java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
-                      java.base/java.lang.reflect.Method.invoke(Method.java:566)<br />
-                      org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)<br />
-                      org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)<br />
-                      org.testng.internal.invokers.MethodInvocationHelper.invokeMethodNoCheckedException(MethodInvocationHelper.java:53)<br />
-                      org.testng.internal.invokers.MethodInvocationHelper.invokeDataProvider(MethodInvocationHelper.java:157)<br />
-                      org.testng.internal.Parameters.handleParameters(Parameters.java:803)<br />
-                      org.testng.internal.Parameters.handleParameters(Parameters.java:728)<br />
-                      org.testng.internal.invokers.ParameterHandler.handleParameters(ParameterHandler.java:72)<br />
-                      org.testng.internal.invokers.ParameterHandler.createParameters(ParameterHandler.java:51)<br />
-                      org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:924)<br />
-                      org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)<br />
-                      org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)<br />
-                      org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)<br />
-                      java.base/java.util.ArrayList.forEach(ArrayList.java:1541)<br />
-                      org.testng.TestRunner.privateRun(TestRunner.java:829)<br />
-                      org.testng.TestRunner.run(TestRunner.java:602)<br />
-                      org.testng.SuiteRunner.runTest(SuiteRunner.java:437)<br />
-                      org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)<br />
-                      org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)<br />
-                      org.testng.SuiteRunner.run(SuiteRunner.java:330)<br />
-                      org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
-                      org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)<br />
-                      org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)<br />
-                      org.testng.TestNG.runSuitesLocally(TestNG.java:1176)<br />
-                      org.testng.TestNG.runSuites(TestNG.java:1099)<br />
-                      org.testng.TestNG.run(TestNG.java:1067)<br />
-                      org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)<br />
-                      org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)<br />
-                      org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)<br />
-                  </div>
-          </div>
+                </div>
       </td>
 </tr>
       </table>

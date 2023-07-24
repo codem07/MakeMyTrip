@@ -24,6 +24,7 @@ import org.testng.annotations.BeforeSuite;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.Markup;
 import com.share.utilities.ExcelReader;
 import com.share.utilities.ExtentManager;
 import com.share.utilities.TestUtil;
@@ -46,7 +47,7 @@ public class TestBase {
 			System.getProperty("user.dir") + "\\src\\test\\resources\\excel\\testdata.xlsx");
 	public static WebDriverWait wait;
 	public ExtentReports extentReport = ExtentManager.getInstance();
-	public static ExtentTest test;
+	public static  ExtentTest test;// = extentReport.createTest("");
 	public static Random random = new Random();
 
 	@SuppressWarnings("deprecation")
@@ -114,22 +115,25 @@ public class TestBase {
 
 			driver.findElement(By.cssSelector(OR.getProperty(locator))).click();
 			test.log(Status.INFO.INFO, "Clicked on " + locator);
-
+            
 		} else if (locator.endsWith("_XPATH")) {
 
 			driver.findElement(By.xpath(OR.getProperty(locator))).click();
 			test.log(Status.INFO, "Clicked on " + locator);
-	
+	test.pass("Clicked on " + locator);
 
 		}  else if (locator.endsWith("_indexXPATH")) {
              
 			driver.findElement(By.xpath(OR.getProperty(locator)+"["+Integer.toString(20) +"]")).click();
 			test.log(Status.INFO.INFO, "Clicked on " + locator);
-
+			test.pass("Clicked on " + locator);
+			
 		}else if (locator.endsWith("_ID")) {
 
 			driver.findElement(By.id(OR.getProperty(locator))).click();
 			test.log(Status.INFO.INFO, "Clicked on " + locator);
+			test.pass("Clicked on " + locator);
+		
 		}
 		
 		
@@ -218,7 +222,7 @@ public class TestBase {
 
 			// Extent Report
 			test.log(Status.FAIL, "Verification failure : " + t.getMessage());
-			test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
+			test.log(Status.FAIL, (Markup) test.addScreenCaptureFromBase64String(TestUtil.screenshotName));
 
 		}
 	}
