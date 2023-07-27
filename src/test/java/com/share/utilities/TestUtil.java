@@ -25,11 +25,11 @@ public class TestUtil extends TestBase {
 		LocalDate ld = LocalDate.now();
 
 		Date d = new Date();
-		screenshotName = d.toString().replace(":", "_").replace(" ", "_");
+		 screenshotName = d.toString().replace(":", "_").replace(" ", "_");
 		File ssFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(ssFile,
 				new File(System.getProperty("user.dir") + "\\target\\surefire-reports\\html\\" + screenshotName));
-
+		 TestUtil.screenshotName = screenshotName;
 	//stackshare
 		
 
