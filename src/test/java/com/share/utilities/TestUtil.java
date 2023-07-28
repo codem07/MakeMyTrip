@@ -1,13 +1,16 @@
 package com.share.utilities;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Base64;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.annotations.DataProvider;
@@ -19,21 +22,44 @@ public class TestUtil extends TestBase {
 	public static String screenshotName;
 //	System.out.println();
 
-	public static void captureScreenshot() throws IOException {
+	public static String captureScreenshot() throws IOException {
 
 
 		LocalDate ld = LocalDate.now();
 
 		Date d = new Date();
-		 screenshotName = d.toString().replace(":", "_").replace(" ", "_");
+		 screenshotName = d.toString().replace(":", "_").replace(" ", "_")+".png";
 		File ssFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(ssFile,
-				new File(System.getProperty("user.dir") + "\\target\\surefire-reports\\html\\" + screenshotName));
-		 TestUtil.screenshotName = screenshotName;
+		
+		screenshotPath = System.getProperty("user.dir") + "\\target\\surefire-reports\\html\\" + screenshotName;
+		
+		FileUtils.copyFile(ssFile, new File(screenshotPath));
+		return screenshotPath;
+		
+		// TestUtil.screenshotName = screenshotName;
 	//stackshare
 		
 
 
+	}
+	
+	
+	public static String getScreenShotAsBase64() throws IOException{
+		
+		
+		Date d = new Date();
+		 screenshotName = d.toString().replace(":", "_").replace(" ", "_")+".png";
+		File ssFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		
+		screenshotPath = System.getProperty("user.dir") + "\\target\\surefire-reports\\html\\" + screenshotName;
+		
+		FileUtils.copyFile(ssFile, new File(screenshotPath));
+	   byte[] imageBytes = IOUtils.toByteArray(new FileInputStream(screenshotPath)) ;
+		return Base64.getEncoder().encodeToString(imageBytes);
+		
+		
+		
+		
 	}
 
 	@DataProvider(name = "db")

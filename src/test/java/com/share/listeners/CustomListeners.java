@@ -9,6 +9,7 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.SkipException;
 
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.share.base.TestBase;
 import com.share.utilities.TestUtil;
@@ -33,18 +34,34 @@ public class CustomListeners extends TestBase implements ITestListener {
 	public void onTestFailure(ITestResult result) {
 		System.setProperty("org.uncommons.reportng.escape-output", "false");
 
-		try {
+	/*	try {
 
 			TestUtil.captureScreenshot();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		*/
+		try {
+			test.fail(result.getName().toUpperCase() + "Failed with exception:" + result.getThrowable(), MediaEntityBuilder.createScreenCaptureFromPath(TestUtil.captureScreenshot()).build());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		test.addScreenCaptureFromBase64String(TestUtil.screenshotName);
-		test.fail(result.getName().toUpperCase() + "Failed with exception:" + result.getThrowable());
+		try {
+			test.fail(result.getName().toUpperCase() + "Failed with exception:" + result.getThrowable(), MediaEntityBuilder.createScreenCaptureFromBase64String(TestUtil.getScreenShotAsBase64()).build());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//test.addScreenCaptureFromBase64String(TestUtil.screenshotPath);
+		//test.fail(result.getName().toUpperCase() + "Failed with exception:" + result.getThrowable());
 
-		Reporter.log("Capturing SS");
+		
+
+        Reporter.log("Capturing SS");
 		Reporter.log("<a target=\"_blank\" href=" + TestUtil.screenshotName + ">Screenshot</a>");
 		Reporter.log("<br>");
 
