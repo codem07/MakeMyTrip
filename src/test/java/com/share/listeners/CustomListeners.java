@@ -21,6 +21,8 @@ public class CustomListeners extends TestBase implements ITestListener {
 		test = extentReport.createTest(result.getName().toUpperCase()).assignAuthor(config.getProperty("AuthorName"))
 				.assignCategory("Regresstion").assignDevice("Chrome");
 
+		
+
 		if (!TestUtil.isTestRunnable(result.getName(), excel)) {
 
 			throw new SkipException("Skipping the test " + result.getName().toUpperCase() + " as th Run mode is no");
@@ -42,12 +44,17 @@ public class CustomListeners extends TestBase implements ITestListener {
 			e.printStackTrace();
 		}
 		*/
+		
+		/* non base64 img
 		try {
 			test.fail(result.getName().toUpperCase() + "Failed with exception:" + result.getThrowable(), MediaEntityBuilder.createScreenCaptureFromPath(TestUtil.captureScreenshot()).build());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
+		
+		
+		//base64 img
 		
 		try {
 			test.fail(result.getName().toUpperCase() + "Failed with exception:" + result.getThrowable(), MediaEntityBuilder.createScreenCaptureFromBase64String(TestUtil.getScreenShotAsBase64()).build());

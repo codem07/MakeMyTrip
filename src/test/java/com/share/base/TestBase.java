@@ -50,6 +50,7 @@ public class TestBase {
 	public static WebDriverWait wait;
 	public ExtentReports extentReport = ExtentManager.getInstance();
 	public static ExtentTest test;
+//	public static ThreadLocal<ExtentTest> test;
 	public static Random random = new Random();
 	public static ChromeOptions options;
 	
