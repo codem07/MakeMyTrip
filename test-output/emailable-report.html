@@ -9,116 +9,33 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">TestSuite</th></tr>
-<tr><td><a href="#t0">GitHub Sync</a></td><td class="num">0</td><td class="num attn">1</td><td class="num">0</td><td class="num">0</td><td class="num">307</td><td></td><td></td></tr>
+<tr><td><a href="#t0">GitHub Sync</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">14,899</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">TestSuite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">GitHub Sync &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">com.share.testcase.GitHubSync</td><td><a href="#m0">setUp</a></td><td rowspan="1">1689915132647</td><td rowspan="1">871</td></tr><tr><th colspan="4">GitHub Sync &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="1">com.share.testcase.GitHubSync</td><td><a href="#m1">tearDown</a></td><td rowspan="1">1689915133863</td><td rowspan="1">0</td></tr><tr><th colspan="4">GitHub Sync &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="1">com.share.testcase.GitHubSync</td><td><a href="#m2">gitHubSync</a></td><td rowspan="1">1689915133606</td><td rowspan="1">0</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">TestSuite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">GitHub Sync &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.share.testcase.GitHubSync</td><td><a href="#m0">gitHubSync</a></td><td rowspan="1">1690624221938</td><td rowspan="1">14525</td></tr></tbody>
 </table>
-<h2>GitHub Sync</h2><h3 id="m0">com.share.testcase.GitHubSync#setUp</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.WebDriverException: unknown error: Chrome failed to start: exited normally.
-  (unknown error: DevToolsActivePort file doesn&apos;t exist)
-  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+<h2>GitHub Sync</h2><h3 id="m0">com.share.testcase.GitHubSync#gitHubSync</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th></tr><tr class="param stripe"><td>bhautik-vasebh1</td><td>bh</td><td>FREE</td><td>https://github.com/orgs/dineflesh</td></tr><tr><th colspan="4">Messages</th></tr><tr><td colspan="4"><div class="messages">Capturing SS<br/><a target="_blank" href=Sat_Jul_29_15_20_36_IST_2023.png>Screenshot</a><br/><br><br/><a target="_blank" href=Sat_Jul_29_15_20_36_IST_2023.png><img src=Sat_Jul_29_15_20_36_IST_2023.png height=200 width=200></img></a></div></td></tr><tr><th colspan="4">Exception</th></tr><tr><td colspan="4"><div class="stacktrace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.css-dw3c54&quot;}
+  (Session info: chrome=115.0.5790.110)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-Q0S3LGK&apos;, ip: &apos;192.168.2.118&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.16&apos;
-Driver info: driver.version: ChromeDriver
-remote stacktrace: Backtrace:
-	GetHandleVerifier [0x0041A813+48355]
-	(No symbol) [0x003AC4B1]
-	(No symbol) [0x002B5358]
-	(No symbol) [0x002D3621]
-	(No symbol) [0x002D0579]
-	(No symbol) [0x00300C55]
-	(No symbol) [0x0030093C]
-	(No symbol) [0x002FA536]
-	(No symbol) [0x002D82DC]
-	(No symbol) [0x002D93DD]
-	GetHandleVerifier [0x0067AABD+2539405]
-	GetHandleVerifier [0x006BA78F+2800735]
-	GetHandleVerifier [0x006B456C+2775612]
-	GetHandleVerifier [0x004A51E0+616112]
-	(No symbol) [0x003B5F8C]
-	(No symbol) [0x003B2328]
-	(No symbol) [0x003B240B]
-	(No symbol) [0x003A4FF7]
-	BaseThreadInitThunk [0x76E500C9+25]
-	RtlGetAppContainerNamedObjectPath [0x76F97B4E+286]
-	RtlGetAppContainerNamedObjectPath [0x76F97B1E+238]
-
-	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$errorHandler$0(W3CHandshakeResponse.java:62)
-	at org.openqa.selenium.remote.HandshakeResponse.lambda$getResponseFunction$0(HandshakeResponse.java:30)
-	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$0(ProtocolHandshake.java:126)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
-	at java.base/java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)
-	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:127)
-	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
-	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:543)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:128)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:74)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.110, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:/Users/Bacancy/AppData/Lo...}, goog:chromeOptions: {debuggerAddress: localhost:58519}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6a63214a396785ee84afc58d863d7074
+*** Element info: {Using=css selector, value=.css-dw3c54}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:131)
-	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:181)
-	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:168)
-	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:157)
-	at com.share.base.TestBase.setUp(TestBase.java:106)
-... Removed 23 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.share.testcase.GitHubSync#tearDown</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">com.share.testcase.GitHubSync#gitHubSync</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th></tr><tr class="param stripe"><td>bhautik-vasebh</td><td>bh</td><td>FREE</td><td>https://github.com/orgs/dineflesh</td></tr><tr><th colspan="4">Exception</th></tr><tr><td colspan="4"><div class="stacktrace">org.openqa.selenium.WebDriverException: unknown error: Chrome failed to start: exited normally.
-  (unknown error: DevToolsActivePort file doesn&apos;t exist)
-  (The process started from chrome location C:\Program Files\Google\Chrome\Application\chrome.exe is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;DESKTOP-Q0S3LGK&apos;, ip: &apos;192.168.2.118&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.16&apos;
-Driver info: driver.version: ChromeDriver
-remote stacktrace: Backtrace:
-	GetHandleVerifier [0x0041A813+48355]
-	(No symbol) [0x003AC4B1]
-	(No symbol) [0x002B5358]
-	(No symbol) [0x002D3621]
-	(No symbol) [0x002D0579]
-	(No symbol) [0x00300C55]
-	(No symbol) [0x0030093C]
-	(No symbol) [0x002FA536]
-	(No symbol) [0x002D82DC]
-	(No symbol) [0x002D93DD]
-	GetHandleVerifier [0x0067AABD+2539405]
-	GetHandleVerifier [0x006BA78F+2800735]
-	GetHandleVerifier [0x006B456C+2775612]
-	GetHandleVerifier [0x004A51E0+616112]
-	(No symbol) [0x003B5F8C]
-	(No symbol) [0x003B2328]
-	(No symbol) [0x003B240B]
-	(No symbol) [0x003A4FF7]
-	BaseThreadInitThunk [0x76E500C9+25]
-	RtlGetAppContainerNamedObjectPath [0x76F97B4E+286]
-	RtlGetAppContainerNamedObjectPath [0x76F97B1E+238]
-
-	at org.openqa.selenium.remote.W3CHandshakeResponse.lambda$errorHandler$0(W3CHandshakeResponse.java:62)
-	at org.openqa.selenium.remote.HandshakeResponse.lambda$getResponseFunction$0(HandshakeResponse.java:30)
-	at org.openqa.selenium.remote.ProtocolHandshake.lambda$createSession$0(ProtocolHandshake.java:126)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
-	at java.base/java.util.Spliterators$ArraySpliterator.tryAdvance(Spliterators.java:958)
-	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:127)
-	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
-	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:543)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:128)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:74)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:136)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:213)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:131)
-	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:181)
-	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:168)
-	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:157)
-	at com.share.base.TestBase.setUp(TestBase.java:106)
-... Removed 23 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at com.share.base.TestBase.click(TestBase.java:129)
+	at com.share.testcase.CommonFeature.createCompany(CommonFeature.java:109)
+	at com.share.testcase.GitHubSync.gitHubSync(GitHubSync.java:37)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 31 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

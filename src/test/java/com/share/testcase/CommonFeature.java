@@ -1,24 +1,18 @@
 package com.share.testcase;
 
 import java.io.IOException;
-import java.util.Random;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
-import com.relevantcodes.extentreports.LogStatus;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.share.base.TestBase;
 import com.share.utilities.ExtentManager;
-import com.share.utilities.TestUtil;
 
 public class CommonFeature extends TestBase {
 	
 
-	public ExtentReports extentReport = ExtentManager.getInstance();
 
 	public static ExtentTest test;
 

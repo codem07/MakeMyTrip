@@ -10,7 +10,7 @@
     <classes>
       <class name="com.share.testcase.GitHubSync">
         <methods>
-          <include name="gitHubSync"/>
+          <include name="gitHubSync" invocation-numbers="0"/>
           <include name="setUp"/>
           <include name="tearDown"/>
         </methods>

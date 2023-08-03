@@ -3,7 +3,6 @@ package com.share.base;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.Properties;
 import java.util.Random;
@@ -23,14 +22,16 @@ import org.testng.Reporter;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
-import com.relevantcodes.extentreports.LogStatus;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.Markup;
 import com.share.utilities.ExcelReader;
 import com.share.utilities.ExtentManager;
 import com.share.utilities.TestUtil;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 public class TestBase {
 
@@ -49,8 +50,13 @@ public class TestBase {
 	public static WebDriverWait wait;
 	public ExtentReports extentReport = ExtentManager.getInstance();
 	public static ExtentTest test;
+//	public static ThreadLocal<ExtentTest> test;
 	public static Random random = new Random();
 	public static ChromeOptions options;
+	
+	public static void setDriver(WebDriver driver) {
+	    TestUtil.driver = driver;
+	}
 
 	@SuppressWarnings("deprecation")
 	@BeforeSuite
@@ -121,22 +127,26 @@ public class TestBase {
 		if (locator.endsWith("_CSS")) {
 
 			driver.findElement(By.cssSelector(OR.getProperty(locator))).click();
-			test.log(LogStatus.INFO, "Clicked on " + locator);
-
+			test.log(Status.INFO.INFO, "Clicked on " + locator);
+			test.pass("Clicked on " + locator);
 		} else if (locator.endsWith("_XPATH")) {
 
 			driver.findElement(By.xpath(OR.getProperty(locator))).click();
-			test.log(LogStatus.INFO, "Clicked on " + locator);
+			test.log(Status.INFO, "Clicked on " + locator);
+	test.pass("Clicked on " + locator);
 
 		}  else if (locator.endsWith("_indexXPATH")) {
              
 			driver.findElement(By.xpath(OR.getProperty(locator)+"["+Integer.toString(20) +"]")).click();
-			test.log(LogStatus.INFO, "Clicked on " + locator);
-
+			test.log(Status.INFO.INFO, "Clicked on " + locator);
+			test.pass("Clicked on " + locator);
+			
 		}else if (locator.endsWith("_ID")) {
 
 			driver.findElement(By.id(OR.getProperty(locator))).click();
-			test.log(LogStatus.INFO, "Clicked on " + locator);
+			test.log(Status.INFO.INFO, "Clicked on " + locator);
+			test.pass("Clicked on " + locator);
+		
 		}
 		
 		
@@ -146,7 +156,7 @@ public class TestBase {
 		
 		
 	    WebElement element = driver.findElement(By.xpath(OR.getProperty(locator)));
-		test.log(LogStatus.INFO, "gettext for this " + locator);
+	    test.log(Status.INFO.INFO, "gettext for this " + locator);
 		String str = element.getText();
 		return str;
 		
@@ -160,17 +170,17 @@ public class TestBase {
 
 			driver.findElement(By.cssSelector(OR.getProperty(locator))).sendKeys(value);
 			;
-			test.log(LogStatus.INFO, "Typed " + value + " on " + locator);
+			test.log(Status.INFO, "Typed " + value + " on " + locator);
 
 		} else if (locator.endsWith("_XPATH")) {
 
 			driver.findElement(By.xpath(OR.getProperty(locator))).sendKeys(value);
-			test.log(LogStatus.INFO, "Typed " + value + " on " + locator);
+			test.log(Status.INFO, "Typed " + value + " on " + locator);
 
 		} else if (locator.endsWith("_ID")) {
 
 			driver.findElement(By.id(OR.getProperty(locator))).sendKeys(value);
-			test.log(LogStatus.INFO, "Typed " + value + " on " + locator);
+			test.log(Status.INFO, "Typed " + value + " on " + locator);
 		}
 	}
 
@@ -194,7 +204,7 @@ public class TestBase {
 
 		Select select = new Select(dropdown);
 		select.selectByVisibleText(value);
-		test.log(LogStatus.INFO, "Selecting from dropdown" + locator + " value as " + value);
+		test.log(Status.INFO, "Selecting from dropdown" + locator + " value as " + value);
 
 	}
 
@@ -211,7 +221,7 @@ public class TestBase {
 		try {
 
 			Assert.assertEquals(actual, expected);
-			test.log(LogStatus.PASS, "Verification success: " + actual + " equal to " + expected);
+			test.log(Status.PASS, "Verification success: " + actual + " equal to " + expected);
 			//test.log(LogStatus.PASS, test.addScreenCapture(TestUtil.screenshotName));
 		} catch (Throwable t) {
 
@@ -224,24 +234,24 @@ public class TestBase {
 			Reporter.log("<br>");
 
 			// Extent Report
-			test.log(LogStatus.FAIL, "Verification failure : " + t.getMessage());
-			test.log(LogStatus.FAIL, test.addScreenCapture(TestUtil.screenshotName));
+			test.log(Status.FAIL, "Verification failure : " + t.getMessage());
+			//test.log(Status.FAIL, test.addScreenCapture(TestUtil.screenshotName));
 
 		}
 	}
 	public  void testLogPASS(String message) {
-		test.log(LogStatus.PASS, message);
+		test.log(Status.PASS, message);
 	}
 	public  void testLogFail(String message) {
-		test.log(LogStatus.FAIL, message);
+		test.log(Status.FAIL, message);
 	}
 	
 	public  void testLogINFO(String message) {
-		test.log(LogStatus.INFO, message);
+		test.log(Status.INFO, message);
 	}
 	
 	public  void testLogSKIP(String message) {
-		test.log(LogStatus.SKIP, message);
+		test.log(Status.SKIP, message);
 	}
 	
 	
@@ -249,11 +259,11 @@ public class TestBase {
 	@AfterSuite
 	public void tearDown() {
 
-		/*if (driver != null) {
+		if (driver != null) {
 			driver.quit();
 		}
 
-		log.debug("test execution completed");*/	
+		log.debug("test execution completed");
 		
 	}
 
